@@ -1,0 +1,8 @@
+FROM golang:1.6-onbuild
+
+VOLUME ["/app"]
+WORKDIR /go/src/app
+ADD ./cmd/tcp-proxy/main.go /go/src/app
+RUN cd cmd/tcp-proxy && \
+    go get -d && \
+    GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -v -x
