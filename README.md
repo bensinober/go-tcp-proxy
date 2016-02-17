@@ -1,6 +1,7 @@
 # tcp-proxy
 
 A small TCP proxy written in Go
+This is a fork of github.com/lumanetworks/go-tcp-proxy modified for CI automation builds and creation of docker images.
 
 This project was intended for debugging text-based protocols. The next version will address binary protocols.
 

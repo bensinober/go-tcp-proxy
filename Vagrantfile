@@ -28,10 +28,6 @@ Vagrant.configure(2) do |config|
     d.build_image "/vagrant",
       args: "-t digibib/tcp-proxy -f /vagrant/Dockerfile"
 
-    # RUN APP IN CONTAINER
-    d.run "tcp-proxy",
-      image: "digibib/tcp-proxy"
-  
   end
 
 end
