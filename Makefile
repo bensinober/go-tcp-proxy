@@ -9,10 +9,10 @@ halt:
 	vagrant halt || true
 
 up:
-	vagrant up
+	vagrant up --no-provision
 
 provision:
-	vagrant provision
+	sleep 3 && vagrant provision
 
 run: delete
 	@echo "======= RUNNING TCP-PROXY CONTAINER ======\n"
