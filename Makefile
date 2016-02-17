@@ -1,7 +1,7 @@
 .PHONY: all test clean
 IMAGE ?= digibib/tcp-proxy
 
-all: reload provision run test
+all: reload provision run
 
 reload: halt up
 
@@ -35,7 +35,7 @@ login: # needs EMAIL, PASSWORD, USERNAME
 TAG = "$(shell git rev-parse HEAD)"
 
 tag:
-	vagrant ssh -c 'docker tag -f $(IMAGE):$(TAG)'
+	vagrant ssh -c 'docker tag -f $(IMAGE) $(IMAGE):$(TAG)'
 
 push: tag
 	@echo "======= PUSHING KOHA CONTAINER ======\n"
