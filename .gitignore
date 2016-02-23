@@ -1,3 +1,5 @@
 .vagrant
 !build/PLACEHOLDER
 build/*
+main.go
+cmd/tcp-proxy/tcp-proxy
