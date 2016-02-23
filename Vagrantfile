@@ -11,6 +11,11 @@ Vagrant.configure(2) do |config|
   config.vm.network :forwarded_port, guest: 9999, host: 9999
   config.vm.provision :docker do |d|
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "off"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "off"]
+  end
+
     # BUILD APP
     d.build_image "/vagrant",
       args: "-t digibib/build -f /vagrant/Dockerfile.build"
