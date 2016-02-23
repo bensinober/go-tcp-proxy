@@ -1,4 +1,4 @@
-.PHONY: all test clean
+.PHONY: all test
 IMAGE ?= digibib/tcp-proxy
 
 all: reload provision run

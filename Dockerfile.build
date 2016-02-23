@@ -1,6 +1,7 @@
-FROM golang:1.6-onbuild
+FROM golang:1.6
 
 VOLUME ["/app"]
+COPY . /go/src/app
 WORKDIR /go/src/app
 ADD ./cmd/tcp-proxy/main.go /go/src/app
 RUN cd cmd/tcp-proxy && \

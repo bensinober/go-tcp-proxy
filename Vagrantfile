@@ -19,6 +19,7 @@ Vagrant.configure(2) do |config|
     d.run "builder",
       image: "digibib/build",
       daemonize: false,
+      restart: false,
       args: "--rm -v /vagrant/build:/app",
       cmd: "cp cmd/tcp-proxy/tcp-proxy /app"
   end
