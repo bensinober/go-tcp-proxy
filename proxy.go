@@ -122,6 +122,7 @@ func (p *Proxy) pipe(src, dst io.ReadWriter) {
 
 	//directional copy (64k buffer)
 	buff := make([]byte, 0xffff)
+	src.SetReadBuffer(len(buff))
 	for {
 		n, err := src.Read(buff)
 		if err != nil {
