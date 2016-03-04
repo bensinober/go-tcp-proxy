@@ -60,7 +60,10 @@ func (p *Proxy) Start() {
 	var err error
 	//connect to remote
 	if p.tlsUnwrapp {
-		p.rconn, err = tls.Dial("tcp", p.tlsAddress, nil)
+		conf := &tls.Config{
+			InsecureSkipVerify: true, // Disable tls verify, insecure
+		}
+		p.rconn, err = tls.Dial("tcp", p.tlsAddress, conf)
 	} else {
 		p.rconn, err = net.DialTCP("tcp", nil, p.raddr)
 	}
